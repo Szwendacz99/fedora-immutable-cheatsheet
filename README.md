@@ -18,10 +18,10 @@ rpm-ostree status
 
 ### falling back to any previous commit of the system branch
 
-1. Download last 5 commits
+1. Download last 5 commits (parameter `--commit-metadata-only` is optional but makes things faster)
    
 ```bash
-ostree pull --depth 5 fedora fedora/38/x86_64/kinoite
+ostree pull --commit-metadata-only --depth 5 fedora fedora/38/x86_64/kinoite
 ```
 
 2. (Optionally) pin current deployment if there is chance of need to return to it. 0 is index of current deployment. to list deploymends run `rpm-ostree status` or `ostree admin status`
@@ -36,7 +36,7 @@ ostree admin pin 0
 ostree log fedora/38/x86_64/kinoite
 ```
 
-4. Deploy selected commit using its hash
+4. Deploy selected commit using its hash (or version, like `38.20231008.0`)
 
 ```bash
 rpm-ostree deploy 520e744c643b85fd14817a3eb948f200e7dec902cad4157e411dfeda2c6d7aab
