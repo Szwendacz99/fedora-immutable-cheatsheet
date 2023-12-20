@@ -33,7 +33,7 @@ ostree admin pin 0
 3. List downloaded commits to choose the best one, basing on the timestamp or anything elese
 
 ```bash
-ostree log fedora/38/x86_64/kinoite
+ostree log fedora:fedora/38/x86_64/kinoite
 ```
 
 4. Deploy selected commit using its hash (or version, like `38.20231008.0`)
@@ -61,7 +61,7 @@ ostree remote summary fedora
 2. Rebase the system into the selected tree
 
 ```bash
-rpm-ostree rebase fedora/39/x86_64/kinoite
+rpm-ostree rebase fedora:fedora/39/x86_64/kinoite
 ```
 
 3. reboot into the new deployment
