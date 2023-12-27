@@ -16,6 +16,19 @@ rpm-ostree status
 
 ## Emergency fallback
 
+### booting previous deployment
+
+1. Boot into the last booted deployment before the currently booted deployment, and make it your default deployment
+
+```bash
+rpm-ostree rollback
+```
+2. Make a specific deployment your default deployment, 0 is the deployment index
+
+```bash
+ostree admin set-default 0
+```
+
 ### falling back to any previous commit of the system branch
 
 1. Download last 5 commits (parameter `--commit-metadata-only` is optional but makes things faster)
@@ -48,12 +61,6 @@ rpm-ostree deploy 520e744c643b85fd14817a3eb948f200e7dec902cad4157e411dfeda2c6d7a
 
 ```bash
 ostree admin pin -u 1
-```
-
-7. Make a specific deployment your default deployment, 0 is the deployment index
-
-```bash
-ostree admin set-default 0
 ```
 
 ### Rebase into different tree (also for switching flavors of the distro)
